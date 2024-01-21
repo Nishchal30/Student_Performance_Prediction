@@ -21,5 +21,5 @@ setup(
     version = "0.0.1",
     author="Nishchal Jinturkar",
     install_requires = get_requirements("requirements.txt"),
-    packages=find_packages()
+    packages=setuptools.find_packages()
 )

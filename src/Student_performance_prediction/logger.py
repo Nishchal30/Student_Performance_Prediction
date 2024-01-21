@@ -4,7 +4,7 @@ from pathlib import Path
 
 log_filename = f"{dt.now().strftime('%m-%d-%Y-%H-%M-%S')}.log"
 
-log_filepath = os.path.join(Path(os.getcwd()).resolve().parents[1], "logs")
+log_filepath = os.path.join(Path(os.getcwd()), "logs")
 
 os.makedirs(log_filepath, exist_ok= True)
 
@@ -15,3 +15,8 @@ logging.basicConfig(
     filename=log_file,
     format="[%(asctime)s] - %(lineno)d %(name)s - %(levelname)s - %(message)s"
 )
+
+
+if __name__ == "__main__":
+    logging.info("logging is ready")
+
