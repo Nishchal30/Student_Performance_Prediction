@@ -12,9 +12,9 @@ from dataclasses import dataclass
 @dataclass
 class DataIngestionConfig:
 
-    raw_data_path : str = os.path.join(Path(os.getcwd()).resolve().parents[2],"artifacts", "raw_data.csv")
-    train_data_path :str = os.path.join(Path(os.getcwd()).resolve().parents[2],"artifacts", "train.csv")
-    test_data_path :str = os.path.join(Path(os.getcwd()).resolve().parents[2],"artifacts", "test.csv")
+    raw_data_path : str = Path(os.path.join(Path(os.getcwd()).resolve().parents[2],"artifacts", "raw_data.csv"))
+    train_data_path :str = Path(os.path.join(Path(os.getcwd()).resolve().parents[2],"artifacts", "train.csv"))
+    test_data_path :str = Path(os.path.join(Path(os.getcwd()).resolve().parents[2],"artifacts", "test.csv"))
 
 class DataIngestion:
 
@@ -27,7 +27,6 @@ class DataIngestion:
             logging.info("The data ingestion will start here")
 
             data = pd.read_csv(os.path.join(Path(os.getcwd()).resolve().parents[2], "notebooks", "data", "student.csv"))
-            print(data.head())
 
             logging.info("The data read successfully")
 

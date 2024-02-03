@@ -14,7 +14,7 @@ from dataclasses import dataclass
 @dataclass
 class DataTransformerConfig:
 
-    preprocessor_obj_path : str = os.path.join(Path(os.getcwd()).resolve().parents[2],"artifacts", "preprocessor.pkl")
+    preprocessor_obj_path : str = Path(os.path.join(Path(os.getcwd()).resolve().parents[2],"artifacts", "preprocessor.pkl"))
 
 
 class DataTransformation:
@@ -70,11 +70,11 @@ class DataTransformation:
             raise CustomException(e, sys)
 
 
-    def initiate_data_transformation(self, train_data, test_data):  
+    def initiate_data_transformation(self, train_data_raw, test_data_raw):  
 
         try:
-            train_data = pd.read_csv(train_data)
-            test_data = pd.read_csv(test_data)
+            train_data = pd.read_csv(train_data_raw)
+            test_data = pd.read_csv(test_data_raw)
 
             logging.info("train & test data read successfully")
 
@@ -104,8 +104,7 @@ class DataTransformation:
             logging.info("preprocessing pickle object created")
 
             return(
-                train_arr, test_arr,self.data_transform_config.preprocessor_obj_path
-            )
+                train_arr, test_arr)
 
         except Exception as e:
             logging.info("Error occured in data transformation file in initiate_data_transformation method")

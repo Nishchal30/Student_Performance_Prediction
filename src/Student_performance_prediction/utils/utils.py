@@ -20,3 +20,36 @@ def save_obj(filepath, obj):
     except Exception as e:
         logging.info("Error occured in utils.py file")
         raise CustomException(e, sys)
+    
+
+
+def evaluate_model(X_train, y_train, X_test, y_test, models):
+    try:
+        report = {}
+        for i in range(len(models)):
+            model = list(models.values())[i]
+
+            model.fit(X_train, y_train)
+            y_pred = model.predict(X_test)
+
+            score = r2_score(y_test, y_pred)
+
+            report[list(models.keys())[i]] = score
+
+        return report
+    
+    except Exception as e:
+    logging.info("Error occured in evaluate model in utils.py file")
+    raise CustomException(e, sys)
+
+def load_object(filepath):
+    try:
+
+        with open(filepath, "rb") as file:
+            return pickle.load(filepath)
+    
+    except Exception as e:
+        logging.info("Error occured in load object method in utils file")
+        raise CustomException(e, sys)
+
+    
