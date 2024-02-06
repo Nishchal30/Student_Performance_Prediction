@@ -29,11 +29,11 @@ class DataTransformation:
             logging.info("Data transformation started here")
 
             categorical_features = ['gender',
-                                    'race/ethnicity',
-                                    'parental level of education',
+                                    'race_ethinicity',
+                                    'parental_level_of_education',
                                     'lunch',
-                                    'test preparation course']
-            numerical_features = ['reading score', 'writing score']
+                                    'test_preparation_course']
+            numerical_features = ['reading_score', 'writing_score']
 
 
             logging.info("Pipeline started here")
@@ -78,9 +78,22 @@ class DataTransformation:
 
             logging.info("train & test data read successfully")
 
+            train_data = train_data.rename(columns={"gender" : "gender", "race/ethnicity" : "race_ethinicity",
+                                                    "parental level of education" : "parental_level_of_education",
+                                                    "lunch" : "lunch", "test preparation course" : "test_preparation_course",
+                                                    "math score" : "math_score", "reading score" : "reading_score",
+                                                    "writing score" : "writing_score"})
+            
+            test_data = test_data.rename(columns={"gender" : "gender", "race/ethnicity" : "race_ethinicity",
+                                        "parental level of education" : "parental_level_of_education",
+                                        "lunch" : "lunch", "test preparation course" : "test_preparation_course",
+                                        "math score" : "math_score", "reading score" : "reading_score",
+                                        "writing score" : "writing_score"})
+        
+
             preprocessing_obj = self.get_data_transformation()
 
-            target_column = 'math score'
+            target_column = "math_score"
 
             final_train_df = train_data.drop(target_column, axis = 1)
             target_train_df = train_data[target_column]

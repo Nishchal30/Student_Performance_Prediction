@@ -39,14 +39,14 @@ def evaluate_model(X_train, y_train, X_test, y_test, models):
         return report
     
     except Exception as e:
-    logging.info("Error occured in evaluate model in utils.py file")
-    raise CustomException(e, sys)
+        logging.info("Error occured in evaluate model in utils.py file")
+        raise CustomException(e, sys)
 
 def load_object(filepath):
     try:
 
         with open(filepath, "rb") as file:
-            return pickle.load(filepath)
+            return pickle.load(file)
     
     except Exception as e:
         logging.info("Error occured in load object method in utils file")
