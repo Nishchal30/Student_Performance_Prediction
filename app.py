@@ -6,14 +6,14 @@ import streamlit as st
 def main():
     st.title("Welcome to student marks prediction app!")
 
-    gender = st.selectbox("Please enter your gender", ("Male", "Female"))
-    race_ethinicity = st.selectbox("Please enter your ethinicity", ("Group A", "Group B", "Group C", "Group D", "Group E"))
+    gender = st.selectbox("Please enter your gender", ("male", "female"))
+    race_ethinicity = st.selectbox("Please enter your ethnicity", ("group A", "group B", "group C", "group D", "group E"))
     parental_level_of_education = st.selectbox("Please enter your parents education", 
                                                ("associate's degree", "bachelor's degree", "high school", "master's degree",
                                                 "some college", "some high school"))
     
     lunch = st.selectbox("Please enter type of lunch you have opted for", ("free/reduced", "standard"))
-    test_preparation_course = st.selectbox("Please enter the course status", ("None", "Completed"))
+    test_preparation_course = st.selectbox("Please enter the course status", ("none", "completed"))
     reading_score = st.number_input("Please enter the reading score")
     writing_score = st.number_input("Please enter the writing score")
 
@@ -27,7 +27,7 @@ def main():
 
     st.button("Submit")
 
-    st.write(result)
+    st.write(f"The result of the student is: {result}")
 
 if __name__ == "__main__":
     main()

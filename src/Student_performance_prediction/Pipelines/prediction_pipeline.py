@@ -35,7 +35,7 @@ class CustomData:
 
     def __init__(self, 
                  gender:str,
-                 race_ethnicity:str,
+                 race_ethinicity:str,
                  parental_level_of_education:str,
                  lunch:str,
                  test_preparation_course:str,
@@ -44,7 +44,7 @@ class CustomData:
     ):
         
         self.gender = gender
-        self.race_ethnicity = race_ethnicity
+        self.race_ethinicity = race_ethinicity
         self.parental_level_of_education = parental_level_of_education
         self.lunch = lunch
         self.test_preparation_course = test_preparation_course
@@ -57,7 +57,7 @@ class CustomData:
         try:
             custom_data_input_dict = {
                 "gender":[self.gender],
-                "race_ethnicity":[self.race_ethnicity],
+                "race_ethinicity":[self.race_ethinicity],
                 "parental_level_of_education":[self.parental_level_of_education],
                 "lunch":[self.lunch],
                 "test_preparation_course":[self.test_preparation_course],
